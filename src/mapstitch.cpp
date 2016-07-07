@@ -60,11 +60,13 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
       KeyPoint a2 = kpv1[matches[j].queryIdx],
                b2 = kpv2[matches[j].trainIdx];
 
+      if (j == i)
+    	continue;
+
       if (matches[j].distance > 30)
         continue;
 
-      if ( fabs(norm(a1.pt-a2.pt) - norm(b1.pt-b2.pt)) > max_pairwise_distance ||
-           fabs(norm(a1.pt-a2.pt) - norm(b1.pt-b2.pt)) == 0)
+      if ( fabs(norm(a1.pt-a2.pt) - norm(b1.pt-b2.pt)) > max_pairwise_distance)
         continue;
 
       matches_filtered.push_back(matches[j]);
