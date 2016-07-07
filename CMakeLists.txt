@@ -27,12 +27,12 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 # mapstitch standalone tool
-#add_executable(${PROJECT_NAME}_tool src/main.cpp)
-#add_dependencies(${PROJECT_NAME}_tool ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-#target_link_libraries(${PROJECT_NAME}_tool
-#    ${catkin_LIBRARIES}
-#    ${PROJECT_NAME}
-#)
+add_executable(${PROJECT_NAME}_tool src/main.cpp)
+add_dependencies(${PROJECT_NAME}_tool ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_tool
+    ${catkin_LIBRARIES}
+    ${PROJECT_NAME}
+)
 
 # mapstitch node
 #add_executable(${PROJECT_NAME}_node src/rosmain.cpp)
