@@ -116,7 +116,7 @@ StitchedMap::get_debug()
   drawKeypoints(image1, kpv1, image1, Scalar(255,0,0));
   drawKeypoints(image2, kpv2, image2, Scalar(255,0,0));
   drawMatches(image1,fil1, image2,fil2, matches_filtered,out,Scalar::all(-1),Scalar::all(-1));
-  std::cout << "total matches: " << matches.size() << " filtered matches: " << matches_filtered.size() << std::endl;
+  //std::cout << "total matches: " << matches.size() << " filtered matches: " << matches_filtered.size() << std::endl;
   return out;
 }
 
