@@ -3,7 +3,7 @@ project(mapstitch)
 
 find_package(catkin REQUIRED COMPONENTS roscpp std_msgs nav_msgs tf)
 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 2 REQUIRED)
 
 catkin_package(
     INCLUDE_DIRS include
