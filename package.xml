@@ -29,4 +29,7 @@
 
   <run_depend>roscpp</run_depend>
   <run_depend>tf</run_depend>
+  
+  <build_depend>cv_bridge</build_depend>
+  <run_depend>cv_bridge</run_depend>
 </package>
