@@ -1,6 +1,6 @@
 #pragma once
 
-#include <opencv/cv.h>
+#include <opencv2/opencv.hpp>
 #include <nav_msgs/OccupancyGrid.h>
 
 cv::Mat occupancyGridToCvMat(const nav_msgs::OccupancyGrid * map);

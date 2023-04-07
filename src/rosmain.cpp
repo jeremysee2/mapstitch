@@ -27,7 +27,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "nav_msgs/OccupancyGrid.h"
 #include "mapstitch/mapstitch.h"
 #include <tf/transform_broadcaster.h>
-#include <opencv/highgui.h>
+#include <opencv2/opencv.hpp>
 #include <unistd.h>
 #include <string>
 
@@ -35,6 +35,7 @@ using namespace cv;
 using namespace tf;
 using namespace ros;
 using namespace nav_msgs;
+
 
 std::string save_stitch("");
 double max_distance = 5.;

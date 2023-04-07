@@ -3,7 +3,13 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <opencv/cv.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/features2d.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/calib3d.hpp>
+
+#define THRESHOLD 1000
 
 using namespace cv;
 using namespace std;
@@ -11,24 +17,22 @@ using namespace std;
 class StitchedMap
 {
 public:
-  StitchedMap(Mat &im1, Mat &im2, float max_distance=5.);
-  ~StitchedMap();
+    StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance);
+    ~StitchedMap();
 
-  Mat get_debug();
-  Mat get_stitch();
+    Mat get_debug();
+    Mat get_stitch();
+    bool is_valid;
 
-  Mat H; // transformation matrix
-  Mat image1, image2,
-      dscv1, dscv2;
-  bool is_valid;
+    float rot_rad, rot_deg, transx, transy, scalex, scaley;
+    Mat image1, image2, H;
+    Mat dscv1, dscv2;
 
-  vector<KeyPoint> kpv1,kpv2;
-  vector<KeyPoint> fil1,fil2;
-  vector<Point2f>  coord1,coord2;
-  vector<DMatch>   matches;
-  vector<DMatch>   matches_filtered;
-
-  double rot_deg,rot_rad,transx,transy,scalex,scaley;
+private:
+    vector<KeyPoint> kpv1, kpv2;
+    vector<KeyPoint> fil1, fil2;
+    vector<DMatch> matches, matches_filtered;
+    vector<Point2f> coord1, coord2;
 };
 
 #endif // MAPSTITCH_H
